@@ -84,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+            <state relative-caret-position="309">
+              <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -368,12 +368,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562062310790</updated>
-      <workItem from="1562062312258" duration="15665000" />
+      <workItem from="1562062312258" duration="15998000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15665000" />
+    <option name="totallyTimeSpent" value="15998000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,17 +385,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="691" y="0" width="749" height="900" extended-state="6" />
-    <editor active="true" />
+    <frame x="512" y="0" width="928" height="900" extended-state="6" />
     <layout>
       <window_info id="npm" sideWeight="0.50089765" side_tool="true" weight="0.251693" />
       <window_info id="Favorites" sideWeight="0.50089765" side_tool="true" weight="0.251693" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.31966054" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.033860046" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" sideWeight="0.49928468" visible="true" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49928468" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.50143063" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
@@ -644,8 +643,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        <state relative-caret-position="309">
+          <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
         </state>
       </provider>
     </entry>
