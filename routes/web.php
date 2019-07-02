@@ -26,3 +26,5 @@ Route::get('/user/{id}',function($id) {
     $user = User::find($id);
     return $user->role;
 });
+
+Route::resource('admin/user','AdminUserController');
