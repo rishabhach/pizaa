@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('sideBar')
-    <a href="{{route('user.index')}}">All Users</a>
-    <a href="{{route('user.create')}}">Create User</a>
-
-@stop
+    <pre><a href="{{route('user.index')}}">All Users</a>    <a href="{{route('user.create')}}">Create User</a>      <a href="{{route('post.index')}}">All posts</a>     <a href="{{route('post.create')}}">Create post</a></pre>
+@endsection
 
 

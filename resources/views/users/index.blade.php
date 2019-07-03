@@ -19,14 +19,13 @@
             <th>name</th>
             <th>role</th>
             <th>Is Active</th>
-            <th>Delete</th>
+
         </tr>
         @foreach($users as $user)
             <tr>
                 <td><a href="{{route('user.edit',$user->id)}}">{{$user->name}}</a></td>
                 <td>{{$user->role_id==1?'administrator':'customer'}}</td>
                 <td>{{$user->is_active==1?'active':'in active'}}</td>
-                <td><a href="{{route('user.destroy',$user->id)}}">Delete</a ></td>
                 <td>
                 <form action="{{ route('user.destroy',$user->id) }}" method="POST">
 

@@ -20,7 +20,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/home',function(){
+    return view('home1');
+});
+
 
 Route::get('/user/{id}',function($id) {
     $user = User::find($id);
@@ -28,3 +34,4 @@ Route::get('/user/{id}',function($id) {
 });
 
 Route::resource('admin/user','AdminUserController');
+Route::resource('post','PostController');
