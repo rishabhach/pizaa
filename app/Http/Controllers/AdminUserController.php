@@ -41,7 +41,10 @@ class AdminUserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        User::create($request->all());
+        $user = $request->all();
+        $user['password'] = bcrypt($request->password);
+        User::create($user);
+
         return redirect('admin/user');
     }
 
@@ -53,7 +56,8 @@ class AdminUserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.show',compact('user'));
     }
 
     /**
@@ -64,7 +68,9 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit',compact('user'));
+//        return $user;
     }
 
     /**
@@ -74,9 +80,13 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->update($request->all());
+
+        return redirect()->route('user.index')->with('success','record updated successfully');
     }
 
     /**
@@ -87,6 +97,10 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('user.index')->with('success','user deleted succesfully');
+//        return "i am in delete";
+        //return $user;
     }
 }
