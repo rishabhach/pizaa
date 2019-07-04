@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,10 @@ class Admin
     public function handle($request, Closure $next)
     {
         $user = Auth::User();
-        if($user && $user->role->id==1){
+        if($user)
+        {
             return $next($request);
         }
-
-        return redirect('/');
+          redirect()->route('login');
     }
 }

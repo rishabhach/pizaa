@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->integer('count')->default(1);
             $table->string('topping');
             $table->integer('status')->default(1);
+            $table->integer('total')->default(0);
             $table->timestamps();
         });
     }

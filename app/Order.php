@@ -8,7 +8,7 @@ class Order extends Model
 {
 
     protected $fillable = [
-        'user_id', 'post_id', 'count','topping','status'
+        'user_id', 'post_id', 'count','topping','status','total'
     ];
 
     public function user()

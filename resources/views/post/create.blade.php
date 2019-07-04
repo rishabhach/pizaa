@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="is_availabe">Is availabe:</label>
-            <input type="is_availabe" class="form-control" id="is_availabe" name="is_availabe">
+            <input type="number" class="form-control" id="is_availabe" name="is_availabe">
         </div>
 
         <div class="form-group">

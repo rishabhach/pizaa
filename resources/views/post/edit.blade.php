@@ -2,6 +2,14 @@
 
 
 @section('content')
+    @if($message = Session::get('success'))
+        <div class="alert alert-danger">
+
+            <p>{{$message}}</p>
+
+        </div>
+    @endif
+
 
     <form method="POST" action="{{route('post.update',$post->id)}}">
         @csrf
@@ -17,13 +25,13 @@
         </div>
 
         <div class="form-group">
-            <label for="role">Photo:</label>
+            <label for="photo_id">Photo:</label>
             <input type="number" class="form-control" id="photo" name="photo_id" value="{{$post->photo_id}}">
         </div>
 
         <div class="form-group">
             <label for="is_availabe">Is availabe:</label>
-            <input type="is_availabe" class="form-control" id="is_availabe" name="is_available" value="{{$post->is_available}}">
+            <input type="number" class="form-control" id="is_availabe" name="is_available" value="{{$post->is_available}}">
         </div>
 
         <div class="form-group">
@@ -145,34 +153,6 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--@endsection--}}
-
-
-
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="view/image/img.jpeg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
 
 
 

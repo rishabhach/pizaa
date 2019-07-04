@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderPlaceRequest;
 use App\Order;
+use App\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,8 +40,16 @@ class OrderPlaceController extends Controller
     {
         $user_id = Auth::User()->id;
 
-        Order::create(array_merge(['user_id'=>$user_id,'post_id'=>$id],$request->all()));
-        return redirect()->route('post.index')->with('success','Order placed successfully');
+        $pizza_cost = Post::find($id)->cost;
+
+        $totalCost = $request->count*$pizza_cost;
+        //return $totalCost;
+
+        Order::create(array_merge(['user_id'=>$user_id,'post_id'=>$id,'total'=>$totalCost],$request->all()));
+//        return $order;
+        return redirect()->route('home')->with('success','Order placed successfully');
+
+
     }
 
     /**

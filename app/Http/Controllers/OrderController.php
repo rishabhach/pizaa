@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use App\Order;
+use App\post;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -14,7 +16,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+
+        return view('order.index',compact('orders'));
+
     }
 
     /**
@@ -24,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('order.create');
     }
 
     /**
@@ -35,7 +40,17 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $pizza_cost = Post::find($request->post_id)->cost;
+
+        $totalCost = $request->count*$pizza_cost;
+        //$request->total = $totalCost;
+
+        $order=Order::create(array_merge(['total'=>$totalCost],$request->all()));
+
+        return redirect()->route('order.show',$order->id)->with('success','order created successfully');
+
     }
 
     /**
@@ -44,9 +59,12 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        $order = order::find($id);
+        return view('order.show',compact('order'));
+        //return $post;
+
     }
 
     /**
@@ -55,9 +73,11 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
-        //
+        $order = order::find($id);
+        return view('order.edit',compact('order'));
+
     }
 
     /**
@@ -67,9 +87,22 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(OrderRequest $request, $id)
     {
-        //
+        $order = order::find($id);
+
+        $pizza_cost = Post::find($request->post_id)->cost;
+
+        $totalCost = $request->count*$pizza_cost;
+
+
+
+        $order->update(array_merge(['total'=>$totalCost],$request->all()));
+
+        //return $totalCost;
+
+        return redirect()->route('order.index')->with('success','order updated successfully');
+
     }
 
     /**
@@ -78,21 +111,24 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy($id)
     {
-        //
+        $order = order::find($id);
+        $order->delete();
+        return redirect()->route('order.index')->with('success','order deleted successfully');
+
     }
 
-    public function OrderPlace(OrderPlaceRequest $request,$post_id)
-    {
-        return "yes order reached";
-
-//        $user_id = Auth::User()->id;
-//        $order = Order::create($request);
-//        $order->user_id = $user_id;
-//        $order->post_id = $post_id;
+//    public function OrderPlace(OrderPlaceRequest $request,$post_id)
+//    {
+//        return "yes order reached";
 //
-//        return redirect()->route('home')->with('success','order Placed successfully');
-
-    }
+////        $user_id = Auth::User()->id;
+////        $order = Order::create($request);
+////        $order->user_id = $user_id;
+////        $order->post_id = $post_id;
+////
+////        return redirect()->route('home')->with('success','order Placed successfully');
+//
+//    }
 }
