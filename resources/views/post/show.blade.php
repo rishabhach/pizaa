@@ -56,5 +56,34 @@
             </div>
         </div>
     </div>
+    <form method="POST" action="{{route('orderPlace',$post->id)}}">
+        @csrf
+        <div class="form-group">
+            <label for="count">Count</label>
+            <input type="number" class="form-control" id="count" name="count">
+        </div>
+
+        <div class="form-group">
+            <label for="topping">topping:</label>
+            <input type="string" class="form-control" id="topping" name="topping">
+        </div>
+        <button type="submit" class="btn btn-default">Place Order</button>
+
+    </form>
+
+    @if(count($errors)>0)
+
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+
+
+        </div>
+
+    @endif
 @endsection
 

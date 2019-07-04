@@ -2,6 +2,7 @@
 
 @section('content')
 
+{{Auth::user()->name}}
 
     @if($message = Session::get('success'))
         <div class="alert alert-danger">

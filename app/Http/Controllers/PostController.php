@@ -100,4 +100,12 @@ class PostController extends Controller
         return redirect()->route('post.index')->with('success','user deleted succesfully');
 
     }
+
+    public function home()
+    {
+
+        $posts = post::all();
+        return view('home',compact('posts'));
+
+    }
 }
