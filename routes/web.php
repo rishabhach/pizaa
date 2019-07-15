@@ -33,7 +33,7 @@ Route::get('/home','PostController@home')->name('home');
 //});
 
 Route::resource('admin/user','AdminUserController')->middleware('Admin');
-Route::resource('post','PostController')->middleware('Admin',['except' => ['home']]);
+Route::resource('post','PostController');
 Route::resource('order','OrderController')->middleware('Admin');
 
 //Route::get('orderPlace/{$post}','OrderController@orderPlace')->name('orderPlace');

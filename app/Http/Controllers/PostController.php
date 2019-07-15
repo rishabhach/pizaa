@@ -12,7 +12,25 @@ class PostController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     *
      */
+
+//    public function __construct()
+//    {
+//        $this->middleware('Admin')->except('show');
+////        $this->middleware('UserMiddleware',['only'=>['show']]);
+////        public function __construct()
+////    {
+////        $this->middleware('guest')->except('logout');
+////    }
+//    }
+
+    public function __construct()
+    {
+        $this->middleware('Admin',['except'=>['show','home']]);
+        $this->middleware('UserMiddleware',['only'=>['show']]);
+    }
     public function index()
     {
         $posts = post::all();

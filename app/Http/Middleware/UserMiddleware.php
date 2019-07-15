@@ -17,10 +17,12 @@ class UserMiddleware
     public function handle($request, Closure $next)
     {
         $user = Auth::User();
-        if($user)
+
+        if(!$user)
         {
-            return $next($request);
+            return redirect()->route('login')->with('success','please login first');
+
         }
-          redirect()->route('login');
+        return $next($request);
     }
 }

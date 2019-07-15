@@ -17,7 +17,9 @@ class Admin
     public function handle($request, Closure $next)
     {
         $user = Auth::User();
-        if($user && $user->role->id==1){
+        if(!$user)
+            return redirect()->route('login')->with('success','please login first');
+        if($user->role->id==1){
             return $next($request);
         }
 
